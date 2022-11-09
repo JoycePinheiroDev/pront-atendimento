@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@PrimaryKeyJoinColumn(name="id_pessoa")
 @Table(name = "tb_enfermeiro")
 public class Enfermeiro extends Pessoa{
 
@@ -14,9 +15,5 @@ public class Enfermeiro extends Pessoa{
     private Integer id;
 
     private String COREN;
-
-    @OneToOne
-    @JoinColumn(name = "id_pessoa", nullable = false)
-    private Pessoa pessoa;
 
 }

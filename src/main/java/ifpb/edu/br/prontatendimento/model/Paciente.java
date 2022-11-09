@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@PrimaryKeyJoinColumn(name="id_pessoa")
 @Table(name = "tb_paciente")
 public class Paciente extends Pessoa{
 
@@ -16,9 +17,5 @@ public class Paciente extends Pessoa{
     private String numero_sus;
 
     private String nome_mae;
-
-    @OneToOne
-    @JoinColumn(name = "id_pessoa", nullable = false)
-    private Pessoa pessoa;
 
 }

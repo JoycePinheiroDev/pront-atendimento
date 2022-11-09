@@ -38,15 +38,7 @@ public class PacienteController {
 
     @PostMapping
     public ResponseEntity<Paciente> post(@RequestBody Paciente paciente){
-        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(paciente.getPessoa().getId());
-        if (pessoaOptional.isPresent()){
-            Pessoa pessoa = pessoaOptional.get();
-            paciente.setPessoa(pessoa);
-            pacienteRepository.save(paciente);
-            return new ResponseEntity<Paciente>(paciente, HttpStatus.CREATED);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
+            return new ResponseEntity<Paciente>(pacienteRepository.save(paciente), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

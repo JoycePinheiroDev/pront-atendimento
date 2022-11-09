@@ -38,16 +38,7 @@ public class EnfermeiroController {
 
     @PostMapping
     public ResponseEntity<Enfermeiro> post(@RequestBody Enfermeiro enfermeiro) {
-        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(enfermeiro.getPessoa().getId());
-        if (pessoaOptional.isPresent()) {
-            Pessoa pessoa = pessoaOptional.get();
-            enfermeiro.setPessoa(pessoa);
-            enfermeiroRepository.save(enfermeiro);
-
-            return new ResponseEntity<Enfermeiro>(enfermeiro, HttpStatus.CREATED);
-
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Enfermeiro>(enfermeiroRepository.save(enfermeiro), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

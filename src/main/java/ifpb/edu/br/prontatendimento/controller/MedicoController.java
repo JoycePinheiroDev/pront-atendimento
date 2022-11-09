@@ -1,7 +1,6 @@
 package ifpb.edu.br.prontatendimento.controller;
 
 import ifpb.edu.br.prontatendimento.model.Medico;
-import ifpb.edu.br.prontatendimento.model.Pessoa;
 import ifpb.edu.br.prontatendimento.repository.MedicoRepository;
 import ifpb.edu.br.prontatendimento.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,16 +38,7 @@ public class MedicoController {
 
     @PostMapping
     public ResponseEntity<Medico> post(@RequestBody Medico medico){
-        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(medico.getPessoa().getId());
-        if (pessoaOptional.isPresent()) {
-            Pessoa pessoa = pessoaOptional.get();
-            medico.setPessoa(pessoa);
-            medicoRepository.save(medico);
-            return new ResponseEntity<Medico>(medico, HttpStatus.CREATED);
-
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
+        return new ResponseEntity<Medico>(medicoRepository.save(medico), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
@@ -74,7 +64,6 @@ public class MedicoController {
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
     }
 
 }

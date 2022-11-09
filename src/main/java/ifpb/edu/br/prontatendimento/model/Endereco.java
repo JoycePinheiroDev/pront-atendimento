@@ -23,7 +23,7 @@ public class Endereco {
 
     private String estado;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_pessoa", nullable = false)
     private Pessoa pessoa;
 
