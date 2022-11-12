@@ -23,6 +23,8 @@ public class Pessoa {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate data_nascimento;
 
+    private Sexo sexo;
+
     private String telefone;
 
     private String CPF;

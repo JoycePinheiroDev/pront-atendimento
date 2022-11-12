@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/pessoas")
@@ -44,6 +43,7 @@ public class PessoaController {
             Pessoa pessoa = oldPessoa.get();
             pessoa.setNome(newPessoa.getNome());
             pessoa.setData_nascimento(newPessoa.getData_nascimento());
+            pessoa.setSexo(newPessoa.getSexo());
             pessoa.setTelefone(newPessoa.getTelefone());
             pessoa.setCPF(newPessoa.getCPF());
             pessoaRepository.save(pessoa);
