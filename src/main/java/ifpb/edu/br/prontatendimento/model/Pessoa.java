@@ -29,4 +29,6 @@ public class Pessoa {
 
     private String CPF;
 
+    private String residencia;
+
 }

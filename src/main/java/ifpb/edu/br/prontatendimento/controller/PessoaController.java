@@ -46,6 +46,7 @@ public class PessoaController {
             pessoa.setSexo(newPessoa.getSexo());
             pessoa.setTelefone(newPessoa.getTelefone());
             pessoa.setCPF(newPessoa.getCPF());
+            pessoa.setResidencia(newPessoa.getResidencia());
             pessoaRepository.save(pessoa);
 
             return new ResponseEntity<Pessoa>(pessoa, HttpStatus.OK);

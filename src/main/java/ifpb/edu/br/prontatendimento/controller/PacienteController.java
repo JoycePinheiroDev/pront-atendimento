@@ -23,7 +23,7 @@ public class PacienteController {
     private PessoaRepository pessoaRepository;
 
     @GetMapping
-    private List<Paciente> get(){
+    public List<Paciente> get(){
         return pacienteRepository.findAll();
     }
 
