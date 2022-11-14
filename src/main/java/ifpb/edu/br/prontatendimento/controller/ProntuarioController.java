@@ -66,7 +66,7 @@ public class ProntuarioController {
              * VERIFICAR SE É POSSÍVEL PEGAR A DATA LOCAL NO FRONTEND*/
             prontuario.setData_atendimento(LocalDateTime.now());
 
-            return new ResponseEntity<Prontuario>(prontuarioRepository.save(prontuario), HttpStatus.OK);
+            return new ResponseEntity<Prontuario>(prontuarioRepository.save(prontuario), HttpStatus.CREATED);
 
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -83,7 +83,7 @@ public class ProntuarioController {
             prontuario.setTemperatura(newProntuario.getTemperatura());
             prontuario.setAlergias(newProntuario.getAlergias());
 
-            return new ResponseEntity<>(prontuarioRepository.save(prontuario), HttpStatus.OK);
+            return new ResponseEntity<Prontuario>(prontuarioRepository.save(prontuario), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

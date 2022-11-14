@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "tb_prontuario")
-public class Prontuario {
+@Table(name = "tb_receita")
+public class Receita {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,18 +19,12 @@ public class Prontuario {
     private Paciente paciente;
 
     @ManyToOne
-    @JoinColumn(name = "id_enfermeiro", nullable = false)
-    private Enfermeiro enfermeiro;
+    @JoinColumn(name = "id_medico", nullable = false)
+    private Medico medico;
 
-    private ClassificacaoRisco classificacao_risco;
+    private String remedio;
 
-    private String sintomas;
-
-    private String pressao_arterial;
-
-    private Double temperatura;
-
-    private String alergias;
+    private String posologia;
 
     private LocalDateTime data_atendimento;
 
