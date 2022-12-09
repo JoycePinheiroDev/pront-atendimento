@@ -47,7 +47,7 @@ public class PacienteController {
         if(oldPaciente.isPresent()){
             Paciente paciente = oldPaciente.get();
             paciente.setNumero_sus(newPaciente.getNumero_sus());
-            paciente.setNome_mae(newPaciente.getNome_mae());
+            paciente.setResponsavel(newPaciente.getResponsavel());
             pacienteRepository.save(paciente);
 
             return new ResponseEntity<Paciente>(paciente, HttpStatus.OK);

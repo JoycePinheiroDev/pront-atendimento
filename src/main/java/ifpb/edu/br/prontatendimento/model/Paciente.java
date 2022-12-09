@@ -16,6 +16,6 @@ public class Paciente extends Pessoa{
 
     private String numero_sus;
 
-    private String nome_mae;
+    private String responsavel;
 
 }
